@@ -1,0 +1,2 @@
+class EventsList < ApplicationRecord
+end
