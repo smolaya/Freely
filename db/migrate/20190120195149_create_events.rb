@@ -1,6 +1,6 @@
-class CreateEventsLists < ActiveRecord::Migration[5.2]
+class CreateEvents < ActiveRecord::Migration[5.2]
   def change
-    create_table :events_lists do |t|
+    create_table :events do |t|
       t.string :name
       t.integer :latitude
       t.integer :longitude
