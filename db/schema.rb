@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_01_21_180205) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "events_lists", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string "name"
     t.float "latitude"
     t.float "longitude"

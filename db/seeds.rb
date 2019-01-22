@@ -41,5 +41,5 @@ events_list = [
 end
 
 events_list.each do |name, latitude, longitude, address, datetime_start, description, category|
-  EventsList.create(name: name, latitude: latitude, longitude: longitude, address: address, datetime_start: datetime_start, description: description, category: category)
+  Event.create(name: name, latitude: latitude, longitude: longitude, address: address, datetime_start: datetime_start, description: description, category: category)
 end
