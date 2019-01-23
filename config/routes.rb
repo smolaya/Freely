@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :sessions
 
   resources :events, only: [:index]
+  resources :places, only: [:index]
+  root 'places#index'
 
   root to: 'articles#index'
   get 'hello_world', to: 'hello_world#index'
