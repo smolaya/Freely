@@ -3,8 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~> 2.5'
 
+ gem 'jwt'
+
 gem 'faker'
-gem 'hirb' 
+
+gem 'hirb'
 
 gem 'react_on_rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
