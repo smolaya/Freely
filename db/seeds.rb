@@ -33,7 +33,7 @@ events_list = [
   datetime_end = datetime_start + [30, 60, 120].sample.minutes
   description = Faker::Lorem.paragraph
   category = Faker::Lorem.word
-  
+
   # Add event to event_list
   events_list << [name, address, datetime_start, datetime_end, description, category]
 end
@@ -41,3 +41,5 @@ end
 events_list.each do |name, address, datetime_start, datetime_end, description, category|
   Event.create(name: name, address: address, datetime_start: datetime_start, datetime_end: datetime_end, description: description, category: category)
 end
+
+p "Izzy rules!"
