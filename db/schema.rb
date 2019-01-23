@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 2019_01_21_180205) do
     t.float "latitude"
     t.float "longitude"
     t.string "address"
-    t.integer "datetime_start"
+    t.datetime "datetime_start"
+    t.datetime "datetime_end"
     t.string "description"
     t.string "category"
     t.datetime "created_at", null: false
