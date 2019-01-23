@@ -26,20 +26,18 @@ end
 events_list = [
 ]
 
-50.times do
+50.times do |n|
   name = Faker::Lorem.word
-  latitude = Faker::Address.latitude
-  longitude = Faker::Address.longitude
-  address = Faker::Address.street_address
+  address = "#{n+1}00 Biscayne Boulevard, Miami Florida"
   datetime_start = Faker::Time.forward(25, :evening)
+  datetime_end = datetime_start + [30, 60, 120].sample.minutes
   description = Faker::Lorem.paragraph
   category = Faker::Lorem.word
   
-
   # Add event to event_list
-  events_list << [ Faker::Lorem.word, Faker::Address.latitude, Faker::Address.longitude, Faker::Address.street_address, Faker::Time.forward(25, :evening),Faker::Lorem.paragraph, Faker::Lorem.word]
+  events_list << [name, address, datetime_start, datetime_end, description, category]
 end
 
-events_list.each do |name, latitude, longitude, address, datetime_start, description, category|
-  Event.create(name: name, latitude: latitude, longitude: longitude, address: address, datetime_start: datetime_start, description: description, category: category)
+events_list.each do |name, address, datetime_start, datetime_end, description, category|
+  Event.create(name: name, address: address, datetime_start: datetime_start, datetime_end: datetime_end, description: description, category: category)
 end

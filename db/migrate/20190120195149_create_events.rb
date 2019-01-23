@@ -5,7 +5,8 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :latitude
       t.integer :longitude
       t.string :address
-      t.integer :datetime_start
+      t.datetime :datetime_start
+      t.datetime :datetime_end
       t.string :description
       t.string :category
 
