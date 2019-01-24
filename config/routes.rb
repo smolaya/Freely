@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :sessions
 
   resources :events, only: [:index]
-  resources :places, only: [:index, :show]
+  resources :places, only: [:index, :show, :create]
   root 'places#index'
 
   root to: 'articles#index'

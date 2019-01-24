@@ -1,4 +1,4 @@
-<h1>Places</h1>
+<p id="notice"><%= notice %></p>
 
 <p>
   You are calling from
@@ -8,3 +8,6 @@
 
 <%= react_component 'Map',
     props: { coordinates: @coordinates, centerOnUser: true} %>
+
+<hr>
+<%= render 'form', place: @place %>
