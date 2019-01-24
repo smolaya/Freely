@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
         @coordinates = [0.0, 0.0] if @coordinates.empty?
       end
       format.json do
-        @places = Place.all
+        @places = Place.near([params[:lat], params[:lng]], 50)
         render json:  {
                         type: "FeatureCollection",
                         features: @places.map do |place|
