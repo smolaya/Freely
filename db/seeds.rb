@@ -60,6 +60,7 @@
   #Events from Eventbrite
   free_events = []
 
+  
   events.each { |event| free_events << { name: event["name"]["text"], address: event["venue"]["address"]["localized_address_display"], datetime_start: event["start"]["local"], datetime_end: event["end"]["local"], description: event["description"]["text"].strip, category: event.dig("category", "name") || "Free Event"
   } }
 
