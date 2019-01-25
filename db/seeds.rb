@@ -33,7 +33,7 @@ events_list = [
   datetime_end = datetime_start + [30, 60, 120].sample.minutes
   description = Faker::Lorem.paragraph
   category = Faker::Lorem.word
-  
+
   # Add event to event_list
   events_list << [name, address, datetime_start, datetime_end, description, category]
 end
@@ -41,3 +41,29 @@ end
 events_list.each do |name, address, datetime_start, datetime_end, description, category|
   Event.create(name: name, address: address, datetime_start: datetime_start, datetime_end: datetime_end, description: description, category: category)
 end
+
+#Geolocation Seeds
+Place.find_or_create_by(
+  name: "Miami Beach Senior High",
+  street: "2231 Prairie Ave",
+  city: "Miami Beach"
+)
+Place.find_or_create_by(
+  name: "Dali Museum",
+  street: "1 Dali Blvd",
+  city: "St Petersburg",
+  state: "FL"
+)
+Place.find_or_create_by(
+  name: "Joe's Stone Crab",
+  street: "11 Washington Ave",
+  city: "Miami Beach"
+)
+Place.find_or_create_by(
+  name: "Wyncode",
+  street: "549 NW 28th Street",
+  city: "Miami",
+  state: "Florida"
+)
+
+p "Izzy rules!"
