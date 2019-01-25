@@ -57,14 +57,14 @@
   events = events.select{ |event| event["is_free"] }
   
 
-  #Events from Eventbrite  
+  #Events from Eventbrite
   free_events = []
 
-  events.each { |event| free_events << { name: event["name"]["text"], address: event["venue"]["address"]["localized_address_display"], datetime_start: event["start"]["local"], datetime_end: event["end"]["local"], description: event["description"]["text"], category: event.dig("category", "name") || "Free Event" 
+  events.each { |event| free_events << { name: event["name"]["text"], address: event["venue"]["address"]["localized_address_display"], datetime_start: event["start"]["local"], datetime_end: event["end"]["local"], description: event["description"]["text"].strip, category: event.dig("category", "name") || "Free Event"
   } }
 
-  free_events.each do |name, address, datetime_start, datetime_end, description, category|
-    Event.create(name: name, address: address, datetime_start: datetime_start, datetime_end: datetime_end, description: description, category: category)
+  free_events.each do |event_data|
+    Event.create(event_data)
   end
 
 
