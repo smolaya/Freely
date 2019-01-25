@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~> 2.5'
 
+gem 'bootstrap'
+gem 'jquery-rails'
 gem 'pry'
 gem 'httparty'
 gem 'geocoder'
