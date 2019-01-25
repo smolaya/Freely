@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'home#index'
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -11,8 +13,7 @@ Rails.application.routes.draw do
   resources :calendar, only: [:index]
   resources :home, only:[:index]
   resources :gallery, only:[:index]
-
-  root to: 'home#index', to: 'home#index'
-  get 'hello_world', to: 'hello_world#index'
+  resources :events, only: [:index]
+  resources :places, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   end
