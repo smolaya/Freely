@@ -18,6 +18,7 @@
 
   # Add user to user_list
   user_list << [ Faker::Internet.email, password]
+<<<<<<< HEAD
   end
 
   user_list.each do |email, password|
@@ -69,10 +70,29 @@
   end
 
 
+  #Geolocation Seeds
+  Place.find_or_create_by(
+    name: "Miami Beach Senior High",
+    street: "2231 Prairie Ave",
+    city: "Miami Beach"
+  )
+  Place.find_or_create_by(
+    name: "Dali Museum",
+    street: "1 Dali Blvd",
+    city: "St Petersburg",
+    state: "FL"
+  )
+  Place.find_or_create_by(
+    name: "Joe's Stone Crab",
+    street: "11 Washington Ave",
+    city: "Miami Beach"
+  )
+  Place.find_or_create_by(
+    name: "Wyncode",
+    street: "549 NW 28th Street",
+    city: "Miami",
+    state: "Florida"
+  )
 
-  
-  puts events_list.count
-  puts free_events.count
-
-
-
+  p "Izzy rules!"
+ 
