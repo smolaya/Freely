@@ -20,18 +20,22 @@ export default class Map extends React.Component {
       navigator.geolocation.getCurrentPosition(
         // success callback
         (position) => {
+          coordinates = [position.coords.longitude, position.coords.latitude]
           document.getElementById("long")
-                  .innerHTML = position.coords.longitude;
+                  .innerHTML = coordinates[0];
           document.getElementById("lat")
-                  .innerHTML = position.coords.latitude;
+                  .innerHTML = coordinates[1];
+          mapOptions.center = coordinates
+          this.createMap(mapOptions);
         },
         // failure callback
-        () => { console.log("Couldn't get location") },
+        () => { this.createMap(mapOptions); },
         // options
         geolocationOptions
       );
+    }else{
+      this.createMap(mapOptions);
     }
-    this.createMap(mapOptions);
   }
 
   createMap = mapOptions => {
