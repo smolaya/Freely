@@ -3,11 +3,11 @@ import mapboxgl from 'mapbox-gl';
 
 export default class Map extends React.Component {
   componentDidMount() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXdlaXNzMTk4MiIsImEiOiJIeHpkYVBrIn0.3N03oecxx5TaQz7YLg2HqA'
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hbWdvbnphbGV6IiwiYSI6ImNqcmNrajV3bDFkaWU0M3A4eHlrdWx3YWsifQ.sRbIZiiJLNorVGwSO-AZmA';
     let { coordinates } = this.props;
     const mapOptions = {
       container: this.mapContainer,
-      style: `mapbox://styles/mapbox/streets-v9`,
+      style: 'mapbox://styles/anamgonzalez/cjrckkrzs4dk22sqligcocble',
       zoom: 12,
       center: coordinates
     };
@@ -21,10 +21,7 @@ export default class Map extends React.Component {
         // success callback
         (position) => {
           coordinates = [position.coords.longitude, position.coords.latitude]
-          document.getElementById("long")
-                  .innerHTML = coordinates[0];
-          document.getElementById("lat")
-                  .innerHTML = coordinates[1];
+          console.log(coordinates)
           mapOptions.center = coordinates
           this.createMap(mapOptions);
         },
