@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import dateFns from 'date-fns'
 import Header from './Header'
 import Days from './Days'
+import Cells from './Cells'
 
 export default class Calendar extends Component {
   state = {
-    currentMonth: new Date()
+    currentMonth: new Date(),
+    currentDate:  new Date()
   }
 
   nextMonth = () => {
@@ -21,7 +23,7 @@ export default class Calendar extends Component {
   }
 
   render(){
-    const { currentMonth } = this.state
+    const { currentMonth, currentDate } = this.state
     return(
       <div className="calendar">
         <Header
@@ -30,6 +32,10 @@ export default class Calendar extends Component {
           nextMonth={this.nextMonth}
         />
         <Days />
+        <Cells
+          currentMonth={currentMonth}
+          currentDate={currentDate}
+        />
       </div>
     )
   }
