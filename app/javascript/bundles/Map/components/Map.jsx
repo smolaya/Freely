@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
+import MapForm from './MapForm.jsx'
+
+const token = document
+              .querySelector('meta[name="csrf-token"]')
+              .getAttribute('content')
+
+export const headers = {
+  'X-Requested-With': 'XMLHttpRequest',
+  'X-CSRF-TOKEN': token
+}
 
 export default class Map extends React.Component {
   componentDidMount() {
@@ -60,15 +70,37 @@ export default class Map extends React.Component {
           .addTo(map)
       })
     });
+    map.on('moveend', _ => this.fetchPlaces());
   }
 
+  fetchPlaces = async _ => {
+    const map = this.map
+    const { lat, lng } = map.getCenter();
+    const { data, data: { features } } = await axious.get('/places.json');
+    map.getSource('places').setData(data)
+  }
+
+
+  createPlace = async p => {
+    await axios.post(
+      '/place',
+      { place: { ...p} },
+      { headers: headers }
+    )
+  }
+  
   render() {
     const style = {
       width: '100%',
       height: '500px',
       backgroundColor: 'azure'
     };
-    return <div style={style} ref={el => this.mapContainer = el} />;
+    return (
+      <div>
+        <div style={style} ref={el => this.mapContainer = el} />;
+        <MapForm />
+      </div>
+    )
   }
 
   componentWillUnmount() {

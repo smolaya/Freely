@@ -26,4 +26,15 @@ class PlacesController < ApplicationController
       end
     end
   end
+
+  def create
+    @place = Place.new(place_params)
+    @place.save
+  end
+
+  private
+
+  def place_params
+    params.require(:place).permit(:name, :street, :city, :state, :country)
+  end
 end
