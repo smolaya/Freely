@@ -38,7 +38,7 @@ export default class Map extends React.Component {
   createMap = mapOptions => {
     this.map = new mapboxgl.Map(mapOptions);
     const map = this.map;
-    map.on('load', (event) => {
+    map.on('load', event => {
       map.addSource(
         'places',
         {
@@ -47,6 +47,18 @@ export default class Map extends React.Component {
         }
       );
       map.addLayer({ id: 'places', type: 'circle', source: 'places'});
+      map.on('click', 'places', e => {
+        const { properties, geometry } = e.features[0];
+        const coordinates  = geometry.coordinates.slice();
+        const { name, id } = properties;
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360
+        }
+        new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML(`<div>${name}</div>`)
+          .addTo(map)
+      })
     });
   }
 
