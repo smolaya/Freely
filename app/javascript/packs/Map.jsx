@@ -5,7 +5,5 @@ import CardsList from '../bundles/Cards/components/CardsList';
 
 // This is how react_on_rails can see the Map in the browser.
 ReactOnRails.register({
-  Map, 
-  CardsList,
-  Cards
+  Map, CardsList, Cards
 });
