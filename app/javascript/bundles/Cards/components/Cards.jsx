@@ -4,6 +4,7 @@ import { Grid, Card } from 'semantic-ui-react';
 import CardsList from './CardsList';
 
 const Cards = props => {
+  console.log(props)
   return (
     <div>
       <Grid.Column>
@@ -12,9 +13,9 @@ const Cards = props => {
             <Card.Content>
               <Card.Header>Card</Card.Header>
               <Card.Meta>
-                <span>{this.props.name}</span><br/>
+                {props.eventcard.name.text}
               </Card.Meta>
-              <Card.Description>{this.props.cards}</Card.Description>
+              <Card.Description>{props.eventcard.description.text}</Card.Description>
             </Card.Content>
           </Card>
         </Grid.Row>
