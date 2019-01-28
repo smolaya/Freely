@@ -1,0 +1,85 @@
+<div class="body">
+  <div class="first-section">
+    <p class="logo">FREELY</p>
+    <!-- <%= video_tag(["fireworks.mp4"], :size => "cover", :controls => false, :autobuffer => true, :autoplay => true, :loop => true, :id => "hero-video", :autoplay => true, :fallback_content => "Your browser does not support HTML5 video tags") %> -->
+    </div>
+    <video autoplay loop id="myvid" muted plays-inline>
+      <source src="<%= asset_path('fireworks.mp4') %>" type="video/mp4">
+    </video>
+    <div class="second-section">
+      <div class="second-section-left-side">
+        <p>UPCOMING EVENTS</p>
+        <div class = "panel-group" id = "accordion">
+          <div class = "panel panel-default">
+
+            <div class = "panel-heading">
+              <h4 class = "panel-title">
+                <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseOne">
+                  Event 1
+                </a>
+              </h4>
+            </div>
+
+            <div id = "collapseOne" class = "panel-collapse collapse in">
+              <div class = "panel-body">
+                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+              </div>
+            </div>
+
+          </div>
+
+          <div class = "panel panel-default">
+            <div class = "panel-heading">
+              <h4 class = "panel-title">
+                <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseTwo">
+                  Event 2
+                </a>
+              </h4>
+            </div>
+
+            <div id = "collapseTwo" class = "panel-collapse collapse">
+              <div class = "panel-body">
+                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+              </div>
+            </div>
+
+          </div>
+
+          <div class = "panel panel-default">
+            <div class = "panel-heading">
+              <h4 class = "panel-title">
+                <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseThree">
+                  Event 3
+                </a>
+              </h4>
+            </div>
+
+            <div id = "collapseThree" class = "panel-collapse collapse">
+              <div class = "panel-body">
+                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="second-section-right-side">
+        <%= image_tag("concertvertical.jpg", :type => :upload,
+        :width => 500, :height => 550, :crop => :fill, id: "concert-vertical", :align=> "center") %>
+      </div>
+    </div>
+
+    <div class="third-section">
+      <div class="map">
+        <%= react_component 'Map',  props: { centerOnUser: false } %>
+      </div>
+
+      <div class="blackandwhite">
+        <%= image_tag("skateboarding.jpg", :type => :upload,
+        :width => 500, :height => 550, :crop => :fill, id: "concert-vertical", :align=> "center") %>
+      </div>
+    </div>
+</div>

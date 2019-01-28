@@ -6,8 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'hello_world_bundle' %>
-    <%= javascript_pack_tag 'Map' %>
+    <%= javascript_pack_tag 'app-bundle' %>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
     <link
         rel="stylesheet"
@@ -16,22 +15,7 @@
   </head>
 
   <body>
-    <div id="container">
-
-      <div id="user_header">
-		 <% if logged_in? %>
-		   <%= link_to 'Logout', logout_path %>
-		 <% else %>
-           <%= link_to "Sign Up", signup_path %>
-		   <%= link_to "Log In", login_path %>
-		 <% end %>
-      </div>
-
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
-
-      <%= yield %>
-    </div>
+    <%= render 'layouts/navbar' %>
+    <%= yield %>
   </body>
 </html>
