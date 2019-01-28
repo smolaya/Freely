@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :sessions
 
+  resources :gallery, only: [:index]
   resources :events, only: [:index]
   resources :places, only: [:index]
   root 'places#index'
