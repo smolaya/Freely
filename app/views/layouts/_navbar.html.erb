@@ -1,29 +1,5 @@
 
-<!-- <div class="nav nav-pills">
-  <div class="nav-item">
-    <a class="nav-link active"><%= link_to 'Home', root_path %></a>
-  </div>
-  <div class="nav-item">
-    <%= link_to 'Gallery', gallery_path %>
-  </div>
-  <div class="nav-item">
-    <%= link_to 'Calendar', calendar_path %>
-  </div>
-</div>
-
-
-<div id="login-form">
-
-  <div id="user_header">
-
-  </div>
-
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
-</div> -->
-
-<ul class="nav nav-pills">
+<ul class="nav nav-pills justify-content-center">
   <li class="nav-item">
     <%= link_to 'Home', root_path, class: "nav-link",  aria: { selected: "false" } %>
   </li>
@@ -32,7 +8,6 @@
   </li>
   <li class="nav-item">
     <%= link_to 'Calendar', calendar_path, class: "nav-link", aria: { selected: "false" } %>
-
   </li>
   <li class="nav-item">
     <% if logged_in? %>

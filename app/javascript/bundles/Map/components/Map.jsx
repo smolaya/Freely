@@ -92,7 +92,7 @@ export default class Map extends React.Component {
 
   render() {
     const style = {
-      width: '100%',
+      width: '50vw',
       height: '500px',
       backgroundColor: 'azure'
     };

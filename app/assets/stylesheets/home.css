@@ -1,0 +1,73 @@
+.first-section{
+  padding: 0;
+  margin: 0;
+}
+video{
+  background-size: cover;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -7px;
+}
+
+.second-section{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  padding: 0;
+  justify-content: space-between;
+}
+
+.second-section-left-side{
+  display: flex;
+  background-color: #1d1538;
+  color: white;
+  margin: none;
+  padding: none;
+  flex-direction: column;
+  width: 60vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.second-section-right-side{
+  display: flex;
+  flex-direction: column;
+  background-color: #ce2910;
+  height: 100vh;
+  width: 40vw;
+  position: relative;
+  opacity: 0.8;
+}
+
+
+.second-section-right-side img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 7em;
+  padding-top: 7em;
+  position: absolute;
+}
+
+.third-section{
+  display: flex;
+  background-color: red;
+}
+
+.map{
+  height: 100%;
+  width: 50vw;
+}
+
+.blackandwhite{
+  height: 30em;
+  width: 50%
+}
+
+.blackandwhite img {
+  height: 31.25em;
+  width: 50vw;
+}
