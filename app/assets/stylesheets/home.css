@@ -1,13 +1,27 @@
 .first-section{
   padding: 0;
   margin: 0;
+
 }
-video{
-  background-size: cover;
+#myvid{
   width: 100vw;
   padding: 0;
   margin: 0;
   margin-bottom: -7px;
+  z-index: -1;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  width: 20%;
+  position: absolute;
+  color: white;
+  border: solid red;
+  margin-left: 35em;
+  margin-top: 15em;
 }
 
 .second-section{
