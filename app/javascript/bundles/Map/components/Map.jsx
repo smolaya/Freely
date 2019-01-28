@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
-import MapForm from './MapForm.jsx'
+import MapForm from './MapForm';
+import axios from 'axios'
 
 const token = document
               .querySelector('meta[name="csrf-token"]')
@@ -76,7 +77,7 @@ export default class Map extends React.Component {
   fetchPlaces = async _ => {
     const map = this.map
     const { lat, lng } = map.getCenter();
-    const { data, data: { features } } = await axious.get('/places.json');
+    const { data, data: { features } } = await axios.get('/places.json');
     map.getSource('places').setData(data)
   }
 
@@ -88,7 +89,7 @@ export default class Map extends React.Component {
       { headers: headers }
     )
   }
-  
+
   render() {
     const style = {
       width: '100%',
@@ -98,7 +99,7 @@ export default class Map extends React.Component {
     return (
       <div>
         <div style={style} ref={el => this.mapContainer = el} />;
-        <MapForm />
+        <MapForm createPlace={this.createPlace} />
       </div>
     )
   }
