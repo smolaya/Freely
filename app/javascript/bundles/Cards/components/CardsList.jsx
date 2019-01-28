@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Grid, Card } from 'semantic-ui-react';
-import Cards from '../bundles/Cards/components/Cards';
+import Cards from './Cards';
 
 export default class CardsList extends React.Component {
   constructor(props){
