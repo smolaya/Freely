@@ -1,9 +1,8 @@
 import ReactOnRails from 'react-on-rails';
 import Calendar from '../bundles/Calendar/components/Calendar';
 import CardsList from '../bundles/Cards/components/CardsList';
-import Cards from '../bundles/Cards/compononents/Cards';
 import Map from '../bundles/Map/components/Map';
 import 'babel-polyfill';
 
 // This is how react_on_rails can see the Components in the browser.
-ReactOnRails.register({ Calendar, Map, CardsList, Cards });
+ReactOnRails.register({ Calendar, Map, CardsList });
