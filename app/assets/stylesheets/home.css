@@ -1,8 +1,8 @@
 .first-section{
   padding: 0;
   margin: 0;
-
 }
+
 #myvid{
   width: 100vw;
   padding: 0;
@@ -20,7 +20,7 @@
   position: absolute;
   color: white;
   border: solid red;
-  margin-left: 35em;
+  margin-left: 37em;
   margin-top: 15em;
 }
 
@@ -82,6 +82,6 @@
 }
 
 .blackandwhite img {
-  height: 31.25em;
+  height: 32em;
   width: 50vw;
 }
