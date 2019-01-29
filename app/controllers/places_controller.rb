@@ -6,15 +6,15 @@ class PlacesController < ApplicationController
         @coordinates = [0.0, 0.0] if @coordinates.empty?
       end
       format.json do
-        @places = Place.all
+        @events = Event.all
         render json:  {
                         type: "FeatureCollection",
-                        features: @places.map do |place|
+                        features: @events.map do |event|
                           {
                             type: "Feature",
                             geometry: {
                               type: "Point",
-                              coordinates: [place.longitude, place.latitude]
+                              coordinates: [event.longitude, event.latitude]
                             },
                             properties: {
                               name: place.name,
@@ -35,6 +35,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :street, :city, :state, :country)
+    params.require(:place).permit(:name, :street, :city, :state, :country, :longitude, :latitude)
   end
 end

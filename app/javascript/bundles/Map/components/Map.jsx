@@ -70,6 +70,7 @@ export default class Map extends React.Component {
           .setHTML(`<div>${name}</div>`)
           .addTo(map)
       })
+      this.fetchPlaces();
     });
     map.on('moveend', _ => this.fetchPlaces());
   }
@@ -77,8 +78,21 @@ export default class Map extends React.Component {
   fetchPlaces = async _ => {
     const map = this.map
     const { lat, lng } = map.getCenter();
-    const { data, data: { features } } = await axios.get('/places.json');
-    map.getSource('places').setData(data)
+    const { data } = await axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=${lat}&location.longitude=${lng}&location.within=25km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
+    const events = data.events.map(event => ({
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [event.venue.longitude, event.venue.latitude]
+        },
+        properties: {
+          name: event.name.text,
+          id: event.id
+        }
+      })
+    )
+    const geoJson = { type: "FeatureCollection", features: events }
+    map.getSource('places').setData(geoJson)
   }
 
 
