@@ -3,14 +3,10 @@ import axios from 'axios';
 import { Grid, Card } from 'semantic-ui-react';
 import Cards from './Cards';
 
-const token = document
-              .querySelector('meta[name="csrf-token"]')
-              .getAttribute('content')
-
 const headers = {
   'X-Requested-With': 'XMLHttpRequest',
-  'X-CSRF-TOKEN': token
-  }
+  'X-CSRF-TOKEN': ReactOnRails.authenticityToken()
+}
 
 export default class CardsList extends React.Component {
   constructor(props){
