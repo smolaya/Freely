@@ -12,30 +12,35 @@ export default class CardsList extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      cards: [],
-      events: [],
+      cards: []
     }
   }
 
-  async componentDidMount() {
-    let { events } = this.state
-    const { data } = await axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=25.8014116&location.longitude=-80.1990871&location.within=25km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
-    events = data.events.map(event => ({
-      name: event.name.text,
-      street: event.venue.address.address_1,
-      city: event.venue.address.city,
-      state: event.venue.address.region,
-      longitude: event.venue.longitude,
-      latitude: event.venue.latitude
-    }))
-    events.forEach(async (event) => {
-      await axios.post(
-        '/places',
-        event,
-        headers: headers,
-      )
-    })
-    this.setState({ cards: data.events, events })
+  componentDidMount() {
+    this.geolocate()
+  }
+
+  geolocate = () => {
+    const geolocationOptions = {
+      enableHighAccuracy: true,
+      maximumAge        : 30000,
+      timeout           : 27000
+    };
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        // success callback
+        (position) => {
+          axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=${position.coords.latitude}&location.longitude=${position.coords.longitude}&location.within=25km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
+            .then(response => {
+              this.setState({ cards: response.data.events })
+            })
+        },
+        // failure callback
+        () => { console.log('Oops') },
+        // options
+        geolocationOptions
+      );
+    }
   }
 
   render() {
