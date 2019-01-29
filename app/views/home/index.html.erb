@@ -2,7 +2,10 @@
   <div class="first-section">
     <p class="logo">FREELY</p>
     <!-- <%= video_tag(["fireworks.mp4"], :size => "cover", :controls => false, :autobuffer => true, :autoplay => true, :loop => true, :id => "hero-video", :autoplay => true, :fallback_content => "Your browser does not support HTML5 video tags") %> -->
-    </div>
+    <p>
+      <%= react_component 'Search' %>
+    </p>
+  </div>
     <video autoplay loop id="myvid" muted plays-inline>
       <source src="<%= asset_path('fireworks.mp4') %>" type="video/mp4">
     </video>
