@@ -1,6 +1,9 @@
 <div class="body">
   <div class="first-section">
-    <p class="logo">FREELY</p>
+    <div class="logo">
+      <%= image_tag("freely_blue", :type => :upload,
+      :width => 400, :height => 200, :crop => :fill, id: "freelylogo", :align=> "center") %>
+    </div>
     <!-- <%= video_tag(["fireworks.mp4"], :size => "cover", :controls => false, :autobuffer => true, :autoplay => true, :loop => true, :id => "hero-video", :autoplay => true, :fallback_content => "Your browser does not support HTML5 video tags") %> -->
     <p>
       <%= react_component 'Results' %>
@@ -11,7 +14,7 @@
     </video>
     <div class="second-section">
       <div class="second-section-left-side">
-        <p>UPCOMING EVENTS</p>
+        <div>UPCOMING EVENTS</div>
         <div class = "panel-group" id = "accordion">
           <div class = "panel panel-default">
 
