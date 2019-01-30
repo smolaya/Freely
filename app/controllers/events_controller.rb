@@ -10,4 +10,22 @@ class EventsController < ApplicationController
     render json: events
   end
 
+  def new
+    @events = Event.new
+  end
+
+  def create
+    @events = Event.new event_params
+
+    redirect_to root_path, notice: 'Event created!'
+  end
+
+  private
+  def event_params
+    params.
+      require(:event).
+      permit(:name, :datetime_start, :datetime_end, :description, :category, :address)              
+  end
 end
+
+
