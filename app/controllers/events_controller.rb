@@ -15,9 +15,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    @events = Event.new event_params
-
-    redirect_to root_path, notice: 'Event created!'
+    @event = current_user.events.new(event_params)
+    if @event.save
+      redirect_to root_path, notice: 'Event created!'
+    else
+      flash[:alert] = "oops"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private
