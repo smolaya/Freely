@@ -17,7 +17,10 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.new(event_params)
     if @event.save
-      redirect_to root_path, notice: 'Event created!'
+      respond_to do |format|
+        format.html{ redirect_to root_path, notice: 'Event created!' }
+        format.json{ render json: @event }
+      end
     else
       flash[:alert] = "oops"
       redirect_back(fallback_location: root_path)

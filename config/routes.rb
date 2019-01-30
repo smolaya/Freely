@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'calendar', to: 'calendar#show', as: 'calendar'
   get 'gallery', to: 'gallery#index', as: 'gallery'
-  post '/api/v1/events', to: 'events#new', as: 'events'
+  post 'events', to: 'events#create'
 
   resources :users
   resources :sessions
