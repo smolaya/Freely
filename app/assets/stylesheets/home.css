@@ -8,19 +8,20 @@
   padding: 0;
   margin: 0;
   margin-bottom: -7px;
-  z-index: -1;
+  z-index: 2;
+}
+
+.freelylogo {
+  z-index: 1;
+  margin-right: 3em;
 }
 
 .logo{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20%;
-  width: 20%;
   position: absolute;
-  color: white;
-  border: solid red;
-  margin-left: 36em;
+  margin-left: 37em;
   margin-top: 15em;
 }
 
