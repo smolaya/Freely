@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :gallery, only:[:index]
   resources :events, only: [:index]
   resources :places, only: [:index, :create]
+  resources :results, only: [:index, :create], :defaults => { :format => 'json' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   end

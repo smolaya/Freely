@@ -2,27 +2,79 @@ import React from 'react';
 import axios from 'axios';
 import Search from './Search';
 
+const headers = {
+  'X-Requested-With': 'XMLHttpRequest',
+  'X-CSRF-TOKEN': ReactOnRails.authenticityToken()
+}
+
 class Results extends React.Component {
   state = {
-    coordinates: ""
+    street: String(),
+    city: String(),
+    state: String(),
+    zipcode: String(),
   }
 
-  handleSearchChange = e => {
-    this.setState({coordinates: e.target.value});
-  };
-  onSubmit = (e) => {
+  handleSearchChange = field => e => this.setState({[field]: e.target.value})
+
+  onSubmit = async e => {
     e.preventDefault();
-    axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=${position.coords.latitude}&location.longitude=${position.coords.longitude}&location.within=25km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`).then(({data}) => {
-      this.setState({results: data})
-    }).catch(err => console.log(err))
+    const { street, city, state, zip} = this.state
+    const resultData = { street, city, state, zip}
+    await axios.post(
+      '/results',
+      resultData,
+      headers: headers
+    )
+    this.setState({
+      street: String(),
+      city: String(),
+      state: String(),
+      zipcode: String(),
+    })
+    Turbolinks.visit('/gallery')
   }
 
   render() {
+    const { street, city, state, zip } = this.state
+
     return (
-      <div>
-      <Search onSubmit={this.onSubmit} handleSearchChange={this.handleSearchChange} />
-    </div>
-  );
+      <div className="searchContent">
+        <form className="searchForm" onSubmit={this.onSubmit}>
+          <input
+            placeholder= "Street"
+            className="searchInput"
+            type="text"
+            name="street"
+            value={street}
+            onChange={this.handleSearchChange('street')} />
+          <input
+            placeholder= "City"
+            className="searchInput"
+            type="text"
+            name="city"
+            value={city}
+            onChange={this.handleSearchChange('city')} />
+          <input
+            placeholder= "State"
+            className="searchInput"
+            type="text"
+            name="State"
+            value={state}
+            onChange={this.handleSearchChange('state')} />
+          <input
+            placeholder= "Zipcode"
+            className="searchInput"
+            type="text"
+            name="Zipcode"
+            value={zip}
+            onChange={this.handleSearchChange('zip')} />
+          <div className="buttons">
+              <button className="submitbutton">Submit</button>
+          </div>
+        </form>
+      </div>
+    )
   }
 }
 
