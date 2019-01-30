@@ -12,21 +12,31 @@ export default class CardsList extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      cards: []
+      cards: [],
+      longitude: String(),
+      latitude: String(),
     }
   }
 
-  componentDidMount() {
-    this.geolocate()
+  async componentDidMount() {
+    const { data } = await axios.get('/results')
+    const { result: { latitude, longitude } } = data
+    this.setState({ latitude, longitude })
+    this.geolocate(latitude, longitude)
+
   }
 
-  geolocate = () => {
+  geolocate = (lat, lng) => {
     const geolocationOptions = {
       enableHighAccuracy: true,
       maximumAge        : 30000,
       timeout           : 27000
     };
-    if ("geolocation" in navigator) {
+    if (lat && lng ){
+      axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=${lat}&location.longitude=${lng}&location.within=25km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
+      .then(response => this.setState({ cards: response.data.events }))
+    }
+    else if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         // success callback
         (position) => {
