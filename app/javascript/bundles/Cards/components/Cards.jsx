@@ -7,11 +7,11 @@ class Cards extends React.Component {
 
   addEvent = e => {
     let event = {
-      name: this.props.eventcard.name.text, 
-      address: this.props.eventcard.venue.address.localized_address_display, 
-      datetime_start: this.props.eventcard.start.local, 
-      datetime_end: this.props.eventcard.end.local, 
-      description: this.props.eventcard.description.text, 
+      name: this.props.eventcard.name.text,
+      address: this.props.eventcard.venue.address.localized_address_display,
+      datetime_start: this.props.eventcard.start.local,
+      datetime_end: this.props.eventcard.end.local,
+      description: this.props.eventcard.description.text,
       category: this.props.eventcard.category.name
     }
 
@@ -52,8 +52,8 @@ class Cards extends React.Component {
               </Card>
             </Grid.Row>
           </Grid.Column>
-        </div>   
+        </div>
       )
     }
-}  
+}
 export default Cards

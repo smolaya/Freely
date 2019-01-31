@@ -1,29 +1,38 @@
 .first-section{
   padding: 0;
   margin: 0;
+  position: relative;
 }
 
 #myvid{
+  position: relative;
+  z-index: 0;
   width: 100vw;
   padding: 0;
   margin: 0;
   margin-bottom: -7px;
-  z-index: 2;
 }
 
-.freelylogo {
-  z-index: 1;
-  margin-right: 3em;
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
 }
 
-.logo{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  margin-left: 37em;
-  margin-top: 15em;
+.logotext{
+  color: white;
+  margin: 25vw 23vw;
+  margin-bottom: 70px;
+  font-size: 10em;
+  font-family: 'Monoton', cursive;
+  text-shadow: 5px 5px 5px black;
 }
+
+.searchContent{
+  margin: 0 30%; 
+}
+
 
 .second-section{
   display: flex;
@@ -42,11 +51,62 @@
   flex-direction: column;
   width: 60vw;
   height: 100vh;
-  justify-content: center;
   align-items: center;
   font-size: 2em;
 }
 
+.upcomingevents {
+  font-family: 'Monoton', cursive;
+  font-size: 1.5em;
+  color: white;
+  padding-bottom: 1em;
+  margin-top: 3em;
+  text-shadow: 5px 5px 5px black;
+}
+
+.link1{
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.link2{
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.link3{
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  font-family: 'Montserrat', sans-serif;
+}
+.panel-title {
+  font-size: .7em;
+}
+
+.panel-heading {
+  margin-top: 3em;
+}
+
+.panel-body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .7em;
+}
+
+.eventsbutton{
+  border-radius: 1em;
+  background-color: #ce2910;
+  font-family: 'Monserrat', sans-serif;
+  margin-top: 3em;
+  border: none;
+  box-shadow: 2px 2px;
+}
+
+.viewmorelink {
+  color: white;
+  font-size: .8em;
+}
 .second-section-right-side{
   display: flex;
   flex-direction: column;
@@ -55,6 +115,7 @@
   width: 40vw;
   position: relative;
   opacity: 0.8;
+  margin-top: .1em;
 }
 
 
@@ -69,7 +130,7 @@
 
 .third-section{
   display: flex;
-  background-color: red;
+  background-color: #1d1538;;
 }
 
 .map{
@@ -85,4 +146,48 @@
 .blackandwhite img {
   height: 32em;
   width: 50vw;
+}
+
+.createanewplace {
+  color: white;
+  border: solid red;
+  padding-top: .5em;
+  padding-right: 2em;
+  font-family: 'Monoton', cursive;
+  font-size: 1.7em;
+  font-weight: lighter;
+}
+
+.mapsearch {
+  display: flex;
+  justify-content: center;
+  border: solid red;
+  padding-right: 2em;
+  width: 100vw;
+  height: 4em;
+}
+
+.mapname {
+  border-radius: 1.5em;
+  border-width: thin;
+  margin-right: 2em;
+
+}
+
+.mapstreet {
+  border-radius: 1.5em;
+  border-width: thin;
+  margin-right: 2em;
+}
+
+.mapcity {
+  border-radius: 1.5em;
+  border-width: thin;
+  margin-right: 2em;
+}
+
+.mapstate {
+  border-radius: 1.5em;
+  border-width: thin;
+  margin-right: 2em;
 }
