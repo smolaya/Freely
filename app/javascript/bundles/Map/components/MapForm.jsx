@@ -23,33 +23,33 @@ class MapForm extends Component {
   render(){
     const { name, street, city, state } = this.state
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3> Create a new place </h3>
-        <input
+      <form onSubmit={this.handleSubmit} className="mapsearch">
+        <h3 className="createanewplace"> Create a new place: </h3>
+        <input className="mapname"
           type ='text'
           value ={name}
           placeholder='Please input a name'
           onChange={this.handleInputChange('name')}
           label='Name'/>
-        <input
+        <input className="mapstreet"
           type ='text'
           value ={street}
           placeholder='Please input a street'
           onChange={this.handleInputChange('street')}
           label='Street'/>
-        <input
+        <input className="mapcity"
           type ='text'
           value ={city}
           placeholder='Please input a city'
           onChange={this.handleInputChange('city')}
           label='City'/>
-        <input
+        <input className="mapstate"
           type ='text'
           value ={state}
           placeholder='Please input a state'
           onChange={this.handleInputChange('state')}
           label='State'/>
-        <input
+        <input className="mapsubmit"
           type='submit'
           value='Create'/>
         </form>

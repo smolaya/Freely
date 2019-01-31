@@ -1,35 +1,49 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+</style>
+
 <div class="body">
   <div class="first-section">
-    <div class="logo">
-      <%= image_tag("freely_blue", :type => :upload,
-      :width => 400, :height => 200, :crop => :fill, id: "freelylogo", :align=> "center") %>
+    <!-- <div class="logo"> -->
+      <!-- <%= image_tag("freely_blue", :type => :upload,
+      :width => 400, :height => 200, :crop => :fill, id: "freelylogo", :align=> "center") %> -->
+      <div class="logotext">
+        FREELY
+      <!-- </div> -->
     </div>
+
     <!-- <%= video_tag(["fireworks.mp4"], :size => "cover", :controls => false, :autobuffer => true, :autoplay => true, :loop => true, :id => "hero-video", :autoplay => true, :fallback_content => "Your browser does not support HTML5 video tags") %> -->
-    <p>
-      <%= react_component 'Results' %>
-    </p>
+    <div>
+      <%= react_component 'results' %>
+    </div>
   </div>
     <video autoplay loop id="myvid" muted plays-inline>
       <source src="<%= asset_path('fireworks.mp4') %>" type="video/mp4">
     </video>
     <div class="second-section">
       <div class="second-section-left-side">
-        <div>UPCOMING EVENTS</div>
+        <div class="upcomingevents">UPCOMING EVENTS</div>
         <div class = "panel-group" id = "accordion">
           <div class = "panel panel-default">
 
             <div class = "panel-heading">
               <h4 class = "panel-title">
-                <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseOne">
-                  Event 1
+                <a class="link1" data-toggle = "collapse" data-parent = "#accordion" href = "#collapseOne">
+                  Shark Tank's Kevin O'Leary LIVE in Miami Beach!
                 </a>
               </h4>
             </div>
 
             <div id = "collapseOne" class = "panel-collapse collapse in">
               <div class = "panel-body">
-                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                February 7th, 2019
+                <br />
+                <br />
+                Shark Tank's Kevin O'Leary Kevin will be live with his team teaching how locals in Miami Beach and surrounding cities can build wealth like a boss!
+                This event is all about helping you succeed! Kevin will be joined by some of the top speakers on wealth creation.
               </div>
             </div>
 
@@ -38,16 +52,18 @@
           <div class = "panel panel-default">
             <div class = "panel-heading">
               <h4 class = "panel-title">
-                <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseTwo">
-                  Event 2
+                <a class="link2" data-toggle = "collapse" data-parent = "#accordion" href = "#collapseTwo">
+                  Miami Concours Presented by Chopard
                 </a>
               </h4>
             </div>
 
             <div id = "collapseTwo" class = "panel-collapse collapse">
               <div class = "panel-body">
-                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                February 17th, 2019
+                <br />
+                <br />
+                A free day-long exhibition of 125+ exotic and collectible automobiles that will be judged by a panel of the country's premier experts and historians.
               </div>
             </div>
 
@@ -56,21 +72,24 @@
           <div class = "panel panel-default">
             <div class = "panel-heading">
               <h4 class = "panel-title">
-                <a data-toggle = "collapse" data-parent = "#accordion" href = "#collapseThree">
-                  Event 3
+                <a class="link3" data-toggle = "collapse" data-parent = "#accordion" href = "#collapseThree">
+                  Wynwood Art Walk Presented By EFFEN Vodka
                 </a>
               </h4>
             </div>
 
             <div id = "collapseThree" class = "panel-collapse collapse">
               <div class = "panel-body">
-                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                February 9th, 2019
+                <br />
+                <br />
+                An all-inclusive, all-day long festival (12PM-3AM). Shop a curated selection of art, jewelry, handmade goods and the hottest new fashion trends at the Thrifter Market showcasing local, Miami-based vendors, and foodtrucks selling the local cuisine.
               </div>
             </div>
 
           </div>
         </div>
+        <button class="eventsbutton" type="button" name="button"><a class="viewmorelink" href="/gallery">View More</a></button>
       </div>
       <div class="second-section-right-side">
         <%= image_tag("concertvertical.jpg", :type => :upload,
@@ -81,11 +100,6 @@
     <div class="third-section">
       <div class="map">
         <%= react_component 'Map',  props: { centerOnUser: false } %>
-      </div>
-
-      <div class="blackandwhite">
-        <%= image_tag("skateboarding.jpg", :type => :upload,
-        :width => 500, :height => 550, :crop => :fill, id: "concert-vertical", :align=> "center") %>
       </div>
     </div>
 </div>
