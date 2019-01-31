@@ -7,31 +7,25 @@
 
 <div class="body">
   <div class="first-section">
-    <!-- <div class="logo"> -->
-      <!-- <%= image_tag("freely_blue", :type => :upload,
-      :width => 400, :height => 200, :crop => :fill, id: "freelylogo", :align=> "center") %> -->
+    <video autoplay loop id="myvid" muted plays-inline>
+      <source src="<%= asset_path('fireworks.mp4') %>" type="video/mp4">
+    </video>
+    <div class="overlay">
       <div class="logotext">
-        FREELY
-<<<<<<< Updated upstream
-      <!-- </div> -->
-    </div>
-
-    <!-- <%= video_tag(["fireworks.mp4"], :size => "cover", :controls => false, :autobuffer => true, :autoplay => true, :loop => true, :id => "hero-video", :autoplay => true, :fallback_content => "Your browser does not support HTML5 video tags") %> -->
-    <div>
-      <%= react_component 'results' %>
-=======
       </div>
       <%#= react_component 'results' %>
       <form class="freelysearch" action="/gallery" data-method="get">
         <input class="freelyzipcode" type="text" name="zip" placeholder="Zipcode" />
         <button class="freelysubmitbutton"type="submit">Search</button>
       </form>
->>>>>>> Stashed changes
+      </div>
+      <%#= react_component 'results' %>
+      <form action="/gallery" data-method="get">
+        <input type="text" name="zip" placeholder="Zipcode" />
+        <button type="submit">Search</button>
+      </form>
     </div>
   </div>
-    <video autoplay loop id="myvid" muted plays-inline>
-      <source src="<%= asset_path('fireworks.mp4') %>" type="video/mp4">
-    </video>
     <div class="second-section">
       <div class="second-section-left-side">
         <div class="upcomingevents">UPCOMING EVENTS</div>
