@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
-import MapForm from './MapForm';
 import axios from 'axios'
 
 const token = document
@@ -111,10 +110,7 @@ export default class Map extends React.Component {
       backgroundColor: 'azure'
     };
     return (
-      <div>
-        <div style={style} ref={el => this.mapContainer = el} />;
-        <MapForm createPlace={this.createPlace} />
-      </div>
+        <div style={style} ref={el => this.mapContainer = el} />   
     )
   }
 
