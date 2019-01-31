@@ -12,7 +12,12 @@
     </video>
     <div class="overlay">
       <div class="logotext">
-        FREELY
+      </div>
+      <%#= react_component 'results' %>
+      <form class="freelysearch" action="/gallery" data-method="get">
+        <input class="freelyzipcode" type="text" name="zip" placeholder="Zipcode" />
+        <button class="freelysubmitbutton"type="submit">Search</button>
+      </form>
       </div>
       <%#= react_component 'results' %>
       <form action="/gallery" data-method="get">

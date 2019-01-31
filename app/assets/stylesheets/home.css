@@ -1,3 +1,7 @@
+
+body{
+  background-color: #1d1538;
+}
 .first-section{
   padding: 0;
   margin: 0;
@@ -13,6 +17,7 @@
   margin-bottom: -7px;
 }
 
+
 .overlay{
   position:absolute;
   top:0;
@@ -22,7 +27,7 @@
 
 .logotext{
   color: white;
-  margin: 25vw 23vw;
+  margin: 25vw 30vw;
   margin-bottom: 70px;
   font-size: 10em;
   font-family: 'Monoton', cursive;
@@ -30,7 +35,24 @@
 }
 
 .searchContent{
-  margin: 0 30%; 
+  margin: 0 30%;
+}
+
+.freelysearch{
+  padding-left: 43%;
+}
+
+.freelyzipcode {
+  height: 2em;
+  border-width: thin;
+  width: 20%;
+}
+
+.freelysubmitbutton {
+  height: 2em;
+  background-color: #ce2910;
+  border: none;
+  color: white;
 }
 
 
@@ -130,7 +152,7 @@
 
 .third-section{
   display: flex;
-  background-color: #1d1538;;
+  background-color: #1d1538;
 }
 
 .map{
@@ -150,44 +172,56 @@
 
 .createanewplace {
   color: white;
-  border: solid red;
-  padding-top: .5em;
   padding-right: 2em;
   font-family: 'Monoton', cursive;
-  font-size: 1.7em;
+  font-size: 2em;
   font-weight: lighter;
+  height: 2em;
 }
 
 .mapsearch {
   display: flex;
   justify-content: center;
-  border: solid red;
   padding-right: 2em;
   width: 100vw;
   height: 4em;
 }
 
 .mapname {
-  border-radius: 1.5em;
   border-width: thin;
   margin-right: 2em;
+  margin-top: .8em;
+  height: 2em;
 
 }
 
 .mapstreet {
-  border-radius: 1.5em;
   border-width: thin;
   margin-right: 2em;
+  margin-top: .8em;
+  height: 2em;
 }
 
 .mapcity {
-  border-radius: 1.5em;
   border-width: thin;
   margin-right: 2em;
+  margin-top: .8em;
+  height: 2em;
 }
 
 .mapstate {
-  border-radius: 1.5em;
   border-width: thin;
   margin-right: 2em;
+  margin-top: .8em;
+  height: 2em;
+}
+
+.mapsubmit {
+  border-width: thin;
+  margin-right: 2em;
+  margin-top: .8em;
+  height: 2em;
+  background-color: #ce2910;
+  border: none;
+  color: white;
 }
