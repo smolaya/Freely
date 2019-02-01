@@ -56,7 +56,12 @@ export default class Map extends React.Component {
           data: `/places.json`
         }
       );
-      map.addLayer({ id: 'places', type: 'circle', source: 'places'});
+      map.addLayer({
+        id: 'places',
+        type: 'symbol',
+        source: 'places',
+        layout: { 'icon-image': 'star-15', 'icon-allow-overlap': true }
+      });
       map.on('click', 'places', e => {
         const { properties, geometry } = e.features[0];
         const coordinates  = geometry.coordinates.slice();
@@ -110,7 +115,7 @@ export default class Map extends React.Component {
       backgroundColor: 'azure'
     };
     return (
-        <div style={style} ref={el => this.mapContainer = el} />   
+        <div style={style} ref={el => this.mapContainer = el} />
     )
   }
 
