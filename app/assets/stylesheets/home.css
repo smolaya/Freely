@@ -90,18 +90,21 @@ body{
   color: white;
   text-shadow: 3px 3px 3px black;
   font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
 }
 
 .link2{
   color: white;
   text-shadow: 3px 3px 3px black;
   font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
 }
 
 .link3{
   color: white;
   text-shadow: 3px 3px 3px black;
   font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
 }
 .panel-title {
   font-size: .7em;
@@ -117,17 +120,17 @@ body{
 }
 
 .eventsbutton{
-  border-radius: 1em;
   background-color: #ce2910;
   font-family: 'Monserrat', sans-serif;
   margin-top: 3em;
   border: none;
-  box-shadow: 2px 2px;
+  box-shadow: 1px 1px;
+  padding-bottom: .2em;
 }
 
 .viewmorelink {
   color: white;
-  font-size: .8em;
+  font-size: .6em;
 }
 .second-section-right-side{
   display: flex;
