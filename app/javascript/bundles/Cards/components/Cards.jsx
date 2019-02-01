@@ -27,10 +27,11 @@ class Cards extends React.Component {
 
     render(){
       return (
-        <div>
-          <Grid.Column>
-            <Grid.Row>
-            <Card>
+        <div id ='event-card-name'>
+          {this.props.eventcard.name.text}
+          <Button onClick={this.addEvent}>Add to My Calendar</Button>
+        {// <Carousel slidesToShow={3} cellAlign="center">
+              <Card>
                 <Card.Content>
                   <Card.Header>{this.props.eventcard.name.text}</Card.Header>
                   <Card.Meta>
@@ -42,10 +43,10 @@ class Cards extends React.Component {
                 </Card.Content>
                 <Button onClick={this.addEvent}>Add to My Calendar</Button>
               </Card>
-            </Grid.Row>
-          </Grid.Column>
-        </div>   
-      )
+        // </Carousel>
+      }
+        </div>
+      );
     }
 }  
 export default Cards
