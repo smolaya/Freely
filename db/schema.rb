@@ -10,15 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_30_004341) do
-
+ActiveRecord::Schema.define(version: 2019_01_30_205319) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "articles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -31,19 +25,8 @@ ActiveRecord::Schema.define(version: 2019_01_30_004341) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "places", force: :cascade do |t|
-    t.string "name", null: false
-    t.float "latitude"
-    t.float "longitude"
-    t.string "ip"
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -64,4 +47,5 @@ ActiveRecord::Schema.define(version: 2019_01_30_004341) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "events", "users"
 end

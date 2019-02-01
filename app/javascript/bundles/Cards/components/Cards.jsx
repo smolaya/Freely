@@ -16,21 +16,13 @@ class Cards extends React.Component {
       category: this.props.eventcard.category.name
     }
 
-    let formData = new FormData()
-    for (let item in event){
-      formData.append( `event[${item}]`, event[item]  )
-    }
+    // let formData = new FormData()
+    // for (let item in event){
+    //   formData.append( `event[${item}]`, event[item]  )
+    // }
 
-    // $.ajax({
-    //   method: 'POST',
-    //   data: formData,
-    //   headers: {
-    //    'Content-Type': 'application/json'
-    //   },
-    //   url: '/api/v1/events'
-    // })
-    axios.post('/api/v1/events.json', formData, { headers: csrfHeaders } )
-      .then( data => console.log( data ) )
+    axios.post('/events.json', { event }, { headers: csrfHeaders } )
+      .then( response => Turbolinks.visit(`/calendar`) )
       .catch( err => console.log( err ) )
   }
 
