@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
-import MapForm from './MapForm';
 import axios from 'axios'
 
 const token = document
@@ -57,7 +56,12 @@ export default class Map extends React.Component {
           data: `/places.json`
         }
       );
-      map.addLayer({ id: 'places', type: 'circle', source: 'places'});
+      map.addLayer({
+        id: 'places',
+        type: 'symbol',
+        source: 'places',
+        layout: { 'icon-image': 'star-15', 'icon-allow-overlap': true }
+      });
       map.on('click', 'places', e => {
         const { properties, geometry } = e.features[0];
         const coordinates  = geometry.coordinates.slice();
@@ -106,15 +110,12 @@ export default class Map extends React.Component {
 
   render() {
     const style = {
-      width: '50vw',
+      width: '100vw',
       height: '500px',
       backgroundColor: 'azure'
     };
     return (
-      <div>
-        <div style={style} ref={el => this.mapContainer = el} />;
-        <MapForm createPlace={this.createPlace} />
-      </div>
+        <div style={style} ref={el => this.mapContainer = el} />
     )
   }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Grid, Card } from 'semantic-ui-react';
 import Cards from './Cards';
+import Carousel from 'nuka-carousel'
 
 const headers = {
   'X-Requested-With': 'XMLHttpRequest',
@@ -12,21 +13,28 @@ export default class CardsList extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      cards: []
+      cards: [],
+      zip: this.props.zip || ''
     }
   }
 
-  componentDidMount() {
-    this.geolocate()
+  async componentDidMount() {
+    const { zip } = this.state
+    this.fetchEvents(zip)
   }
 
-  geolocate = () => {
+  fetchEvents = (zip) => {
     const geolocationOptions = {
       enableHighAccuracy: true,
       maximumAge        : 30000,
       timeout           : 27000
     };
-    if ("geolocation" in navigator) {
+    if(zip.length){
+      axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.address=${zip}&location.within=25km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
+        .then(response => {
+          this.setState({ cards: response.data.events, zip })
+        })
+    }else if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         // success callback
         (position) => {
@@ -44,15 +52,21 @@ export default class CardsList extends React.Component {
   }
 
   render() {
+    const { cards, slideIndex } = this.state
     return (
         <div>
-          <Grid columns='equal' centered>
-            {
-              this.state.cards.map((eventcard, index) => {
+          {
+            cards.length &&
+            (<Carousel
+              slideIndex={slideIndex}
+              afterSlide={slideIndex => this.setState({ slideIndex })}>
+          {
+              cards.map((eventcard, index) => {
                 return <Cards key={index} eventcard={eventcard} />
               })
             }
-          </Grid>
+          </Carousel>)
+        }
         </div>
     )
   }
