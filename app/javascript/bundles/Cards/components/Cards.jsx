@@ -30,6 +30,7 @@ class Cards extends React.Component {
       return (
         <div id ='event-card-name'>
           {this.props.eventcard.name.text}
+          <Button onClick={this.addEvent}>Add to My Calendar</Button>
         {// <Carousel slidesToShow={3} cellAlign="center">
         //       <Card>
         //         <Card.Content>
