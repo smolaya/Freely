@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Grid, Card } from 'semantic-ui-react';
 import Cards from './Cards';
+import Carousel from 'nuka-carousel'
 
 const headers = {
   'X-Requested-With': 'XMLHttpRequest',
@@ -51,15 +52,21 @@ export default class CardsList extends React.Component {
   }
 
   render() {
+    const { cards, slideIndex } = this.state
     return (
         <div>
-          <Grid columns='equal' centered>
-            {
-              this.state.cards.map((eventcard, index) => {
+          {
+            cards.length &&
+            (<Carousel
+              slideIndex={slideIndex}
+              afterSlide={slideIndex => this.setState({ slideIndex })}>
+          {
+              cards.map((eventcard, index) => {
                 return <Cards key={index} eventcard={eventcard} />
               })
             }
-          </Grid>
+          </Carousel>)
+        }
         </div>
     )
   }
