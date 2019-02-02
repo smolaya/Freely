@@ -28,18 +28,21 @@ class Cards extends React.Component {
 
     render(){
       return (
-        <div id ='event-card-name'>
-          {this.props.eventcard.name.text}       
-             <div id ='event-card-meta'>
-                Start time: {this.props.eventcard.start.local} <br />
-                End time: {this.props.eventcard.end.local}<br />
-                Address: {this.props.eventcard.venue.address.localized_address_display}<br />
-              </div>
-              <div id ='event-card-description'>
-                {this.props.eventcard.description.text}
-              </div>
-           <Button onClick={this.addEvent}>Add to My Calendar</Button>
+        <div id='event-card'>
+          <div id ='event-card-name'>
+            {this.props.eventcard.name.text}
+          </div>
+                <div id ='event-card-meta'>
+                  Start time: {this.props.eventcard.start.local} <br />
+                  End time: {this.props.eventcard.end.local}<br />
+                  Address: {this.props.eventcard.venue.address.localized_address_display}<br />
+                </div>
+                <div id ='event-card-description'>
+                  {this.props.eventcard.description.text}
+                </div>
+             <Button onClick={this.addEvent}>Add to My Calendar</Button>
         </div>
+
       );
     }
 }

@@ -1,2 +1,51 @@
-#event-card-name { text-align: center; }
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+
+.event-card-search{
+  padding-top: 1em;
+}
+
+.event-card-search-button{
+  background-color: #ce2910;
+  color: white;
+  border: none;
+  height: 1.6em;
+}
+.events{
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
+  font-family: 'Monoton', cursive;
+  font-weight: lighter;
+  color: white;
+  margin-top: 1em;
+
+
+}
+#event-card {
+  margin: auto;
+  max-height: 30vw;
+  overflow: scroll;
+  text-align: center;
+  background-color: white;
+  border: solid #ce2910;
+  width: 50%;
+  margin-top: 8em;
+
+}
+.gallerybody {
+  background-color: #1d1538;
+  height: 100vh;
+}
+#event-card-name {
+  font-weight:lighter;
+  font-size: 1.5em;
+}
 .slider-control-bottomcenter { display: none !important; }
+
+#event-card-description {
+  margin: auto;
+  width: 50%;
+}
+.slider-list{
+  height: 100vh;
+}

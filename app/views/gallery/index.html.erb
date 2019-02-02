@@ -1,8 +1,15 @@
-<form action="/gallery" data-method="get">
-  <input type="text" name="zip" placeholder="Zipcode" value="<%= params[:zip] %>" />
-  <button type="submit">Search</button>
-</form>
+<div class="gallerybody">
 
-<%= link_to "Find events near me", gallery_path %>
+  <form class="event-card-search" action="/gallery" data-method="get">
+    <input type="text" name="zip" placeholder="Zipcode" value="<%= params[:zip] %>" />
+    <button class="event-card-search-button" type="submit">Search</button>
+  </form>
 
-<%= react_component 'CardsList', props: { zip: params[:zip] } %>
+
+  <%= link_to "Find events near me", gallery_path %>
+
+  <div class="events">
+    EVENTS
+  </div>
+  <%= react_component 'CardsList', props: { zip: params[:zip] } %>
+<div>
