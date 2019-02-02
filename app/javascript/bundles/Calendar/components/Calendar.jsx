@@ -3,12 +3,15 @@ import dateFns from 'date-fns'
 import Header from './Header'
 import Days from './Days'
 import Cells from './Cells'
+import CalendarModal from './CalendarModal'
 
 export default class Calendar extends Component {
   state = {
     currentMonth: new Date(),
     currentDate:  new Date(),
-    events: []
+    events: [],
+    selectedDate: new Date,
+    modalOpen:    false,
   }
 
   nextMonth = () => {
@@ -22,6 +25,15 @@ export default class Calendar extends Component {
       currentMonth: dateFns.subMonths(this.state.currentMonth, 1)
     })
   }
+
+  handleDateClick = day => {
+    this.setState({ selectedDate: day, modalOpen: true })
+  }
+ 
+  closeModal = () => {
+    this.setState({ modalOpen: false })
+  }
+
   componentDidMount = e => {
     let today = new Date()
     let monthStartDate = dateFns.startOfMonth(today)
@@ -32,7 +44,7 @@ export default class Calendar extends Component {
   }
 
   render(){
-    const { currentMonth, currentDate, events } = this.state
+    const { currentMonth, currentDate, events, modalOpen, selectedDate } = this.state
     return(
       <div className="calendar">
         <Header
@@ -45,6 +57,14 @@ export default class Calendar extends Component {
           currentMonth={currentMonth}
           currentDate={currentDate}
           dailyEvents={events}
+          handleDateClick={this.handleDateClick}
+        />
+        <CalendarModal
+          modalOpen={modalOpen}
+          selectedDate={selectedDate}
+          closeModal={this.closeModal}
+          events={events}
+          dailyEvents={ events[dateFns.format(selectedDate, 'YYYY-MM-DD')] || [] }
         />
       </div>
     )

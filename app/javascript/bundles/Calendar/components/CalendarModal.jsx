@@ -1,7 +1,6 @@
 import React from 'react'
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import dateFns from 'date-fns'
-import Form from './Form'
 
 const CalendarModal = props => (
   <Modal isOpen={props.modalOpen} toggle={props.closeModal}>
@@ -11,25 +10,22 @@ const CalendarModal = props => (
     <ModalBody>
       <ul>
         {
-          props.dailyTasks.map(event => {
+          props.dailyEvents.map((event) => {
             return(
               <li key={event.id}>
+                {event.description}
               </li>
             )
           })
         }
       </ul>
       {
-        props.dailyTasks.length === 0 &&
+        props.dailyEvents.length === 0 &&
         <p><i>No events today</i></p>
       }
     </ModalBody>
     <ModalFooter>
-      <Form
-        event={props.event}
-        handleDescriptionChange={props.handleDescriptionChange}
-        handleFormSubmit={props.handleFormSubmit}
-      />
+      
     </ModalFooter>
   </Modal>
 )
