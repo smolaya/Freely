@@ -47,18 +47,3 @@ class Cards extends React.Component {
     }
 }
 export default Cards
-{// <Carousel slidesToShow={3} cellAlign="center">
-//       <Card>
-//         <Card.Content>
-//           <Card.Header>{this.props.eventcard.name.text}</Card.Header>
-//           <Card.Meta>
-//             Start time: {this.props.eventcard.start.local} <br />
-//             End time: {this.props.eventcard.end.local}<br />
-//             Address: {this.props.eventcard.venue.address.localized_address_display}<br />
-//           </Card.Meta>
-//           <Card.Description>{this.props.eventcard.description.text}</Card.Description>
-//         </Card.Content>
-//         <Button onClick={this.addEvent}>Add to My Calendar</Button>
-//       </Card>
-// </Carousel>
-}

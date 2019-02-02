@@ -12,7 +12,9 @@ const Cells = props => {
   let day           = startDate
   while (day <= endDate) {
     for (let i = 0; i < 7; i++) {
-      days.push(<Cell key={day} day={day} {...props} />)
+      let newDate = new Date(day)
+      let dailyEvents =  props.dailyEvents[dateFns.format(newDate, "YYYY-MM-DD")]
+      days.push(<Cell key={day} day={day} {...props} dailyEvents={dailyEvents} />)
       day = dateFns.addDays(day, 1)
     }
     rows.push(
