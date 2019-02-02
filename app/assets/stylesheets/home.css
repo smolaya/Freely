@@ -145,12 +145,10 @@ body{
 
 
 .second-section-right-side img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding-left: 7em;
-  padding-top: 7em;
-  position: absolute;
+  margin-top: 20%;
+  height: 70%;
+  width: 90%;
 }
 
 .third-section{
