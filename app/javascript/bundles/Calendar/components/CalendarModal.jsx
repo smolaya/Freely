@@ -12,9 +12,13 @@ const CalendarModal = props => (
         {
           props.dailyEvents.map((event) => {
             return(
-              <li key={event.id}>
-                {event.description}
-              </li>
+                <ul key={event.id}>
+                  <li>Name: {event.name}</li>
+                  <li>Description: {event.description}</li>
+                  <li>Start Time: {event.datetime_start}</li>
+                  <li>End Time: {event.datetime_end}</li>
+                  <li>Location: {event.address}</li>
+                </ul>  
             )
           })
         }
