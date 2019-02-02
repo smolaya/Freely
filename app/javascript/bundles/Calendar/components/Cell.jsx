@@ -16,7 +16,7 @@ const Cell = props => (
           props.dailyEvents.map(event => {
             return(
               <div key={event.id} className="calendar-event">
-                { event.description }
+                { event.name }
               </div>
             )
           })
