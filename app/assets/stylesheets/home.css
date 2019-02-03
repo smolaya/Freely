@@ -161,6 +161,11 @@ body{
   width: 50vw;
 }
 
+.mapboxgl-popup-content {
+  width: 50vw;
+  padding: 0;
+}
+
 .blackandwhite{
   height: 30em;
   width: 50%
