@@ -65,13 +65,19 @@ export default class Map extends React.Component {
       map.on('click', 'places', e => {
         const { properties, geometry } = e.features[0];
         const coordinates  = geometry.coordinates.slice();
-        const { name, id } = properties;
+        const { name, id, description, address, start, end } = properties;
         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
           coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360
         }
         new mapboxgl.Popup()
           .setLngLat(coordinates)
-          .setHTML(`<div>${name}</div>`)
+          .setHTML(`<div class="mapboxgl-popup-content">
+                      <p>${name}</p>
+                      <p>Start: ${start}</p>
+                      <p>End: ${end}</p>
+                      <p>${description}</p>
+                      <p>Address: ${address}</p>
+                    </div>`)
           .addTo(map)
       })
       this.fetchPlaces();
@@ -91,6 +97,10 @@ export default class Map extends React.Component {
         },
         properties: {
           name: event.name.text,
+          description: event.description.text,
+          address: event.venue.address.localized_address_display,
+          start: event.start.local,
+          end: event.end.local,
           id: event.id
         }
       })
