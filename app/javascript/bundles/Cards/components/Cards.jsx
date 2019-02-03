@@ -15,12 +15,6 @@ class Cards extends React.Component {
       description: this.props.eventcard.description.text,
       category: this.props.eventcard.category.name
     }
-
-    // let formData = new FormData()
-    // for (let item in event){
-    //   formData.append( `event[${item}]`, event[item]  )
-    // }
-
     axios.post('/events.json', { event }, { headers: csrfHeaders } )
       .then( response => Turbolinks.visit(`/calendar`) )
       .catch( err => console.log( err ) )
