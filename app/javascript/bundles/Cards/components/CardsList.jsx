@@ -30,7 +30,7 @@ export default class CardsList extends React.Component {
       timeout           : 27000
     };
     if(zip.length){
-      axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.address=${zip}&location.within=25km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
+      axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.address=${zip}&location.within=10km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
         .then(response => {
           this.setState({ cards: response.data.events, zip })
         })
@@ -38,7 +38,7 @@ export default class CardsList extends React.Component {
       navigator.geolocation.getCurrentPosition(
         // success callback
         (position) => {
-          axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=${position.coords.latitude}&location.longitude=${position.coords.longitude}&location.within=25km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
+          axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=${position.coords.latitude}&location.longitude=${position.coords.longitude}&location.within=10km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
             .then(response => {
               this.setState({ cards: response.data.events })
             })
