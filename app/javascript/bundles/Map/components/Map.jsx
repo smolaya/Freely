@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
-import axios from 'axios'
+import axios from 'axios';
+import {apiKey} from '../../config';
 
 const token = document
               .querySelector('meta[name="csrf-token"]')
@@ -88,7 +89,7 @@ export default class Map extends React.Component {
   fetchPlaces = async _ => {
     const map = this.map
     const { lat, lng } = map.getCenter();
-    const { data } = await axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=${lat}&location.longitude=${lng}&location.within=10km&expand=venue,category&token=N3UJC5A67XVRFFOQQBCG`)
+    const { data } = await axios.get(`https://www.eventbriteapi.com/v3/events/search/?location.latitude=${lat}&location.longitude=${lng}&location.within=10km&expand=venue,category&token=${apiKey}`)
     const events = data.events.map(event => ({
         type: "Feature",
         geometry: {
