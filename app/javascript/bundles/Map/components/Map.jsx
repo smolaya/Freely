@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
-import axios from 'axios'
+import axios from 'axios';
 
 const token = document
               .querySelector('meta[name="csrf-token"]')
