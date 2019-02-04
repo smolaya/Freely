@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 import axios from 'axios';
+<<<<<<< HEAD
+=======
 import {apiKey} from '../../config';
+>>>>>>> a6dca5e7328c652c7fccaa7bc65f0fab2145df5c
 
 const token = document
               .querySelector('meta[name="csrf-token"]')
