@@ -1,16 +1,23 @@
-# README
+## Freely
 
-This is a boilerplate Rails project that uses:
+# What is Freely?
+*Freely is a fullstack Ruby on Rails application that finds free events near the user's current location based on a 10k radius. 
 
-* `ruby ~> 2.5`
-* `postgresql` as the database
-* `webpacker` with `react`
-* the `react_on_rails` gem
+# Technologies used
+*The application uses the mapbox API to obtain the user's current location, and Eventbrite API to render free events near the user. 
+*HTML, CSS, Bootstrap, jQuery, JavaScript, React.js, semantic UI, SQL, Ruby, Ruby on Rails.
+  
+# Installation
+*Clone the repository and run:
+*bundle, yarn install, rails db:drop db:create db:migrate db:seed
+*open a PostgreSQL server and run rails s in the terminal
+*open chrome browser and go to localhost:3000 to view the rendered page. 
 
-## Deployment
+# Future Additions
+*Add an option to filter the results by category
+*Incorporate more APIs to find more events nearby
+*Allow users to add their own events
+*Add push notifications
+*Allow users to publish their activity to social media platforms.
 
-* `heroku create your-app-name`
-* `heroku buildpacks:set heroku/ruby`
-* `heroku buildpacks:add --index 1 heroku/nodejs`
-* `git push heroku master`
-* `heroku run rails db:migrate`
+By Robert Beavin, Stephanie Olaya, and Ana Gonzalez
